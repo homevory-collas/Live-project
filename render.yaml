@@ -1,0 +1,30 @@
+# Render Blueprint — tự dựng 2 dịch vụ khi bạn "New > Blueprint" và trỏ vào repo này.
+# Render Blueprint: creates 2 services from this repo.
+services:
+  # 1) Web + API (proxy.js phục vụ cả giao diện public/ lẫn API)
+  - type: web
+    name: uu9-web
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server/proxy.js
+    envVars:
+      - key: ADMIN_TOKEN
+        generateValue: true        # Render tự sinh chuỗi ngẫu nhiên
+      - key: REQUIRE_EMAIL_VERIFY
+        value: "false"
+      # API thể thao (điền sau trong dashboard nếu có):
+      - key: SPORTS_API_BASE
+        sync: false
+      - key: SPORTS_API_KEY
+        sync: false
+      - key: SPORTS_RAPID_HOST
+        sync: false
+
+  # 2) Chat WebSocket (chat.js)
+  - type: web
+    name: uu9-chat
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server/chat.js

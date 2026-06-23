@@ -1,0 +1,23 @@
+{
+  "name": "live-arena",
+  "version": "0.1.0",
+  "description": "Sports & esports live streaming portal (zh primary, en secondary).",
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes serve public -l 3000",
+    "proxy": "node server/proxy.js",
+    "chat": "node server/chat.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ws": "^8.18.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "optionalDependencies": {
+    "better-sqlite3": "^11.3.0"
+  }
+}
