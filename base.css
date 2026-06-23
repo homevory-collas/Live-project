@@ -1,0 +1,17 @@
+/* base.css — 设计可被你雇的设计师整体替换 / design can be fully reskinned by your designer */
+:root{
+  --red:#E03127; --red-d:#C21d14; --blue:#1668DC; --ink:#181B22; --muted:#5C6373;
+  --faint:#9AA1AE; --bg:#F1F2F4; --card:#FFFFFF; --line:#EAECEF; --live:#FF2E2E;
+  --cn:'Noto Sans SC',sans-serif; --lt:'Saira',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--cn);font-size:14px;line-height:1.55}
+a{color:inherit;text-decoration:none}
+img,video{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 18px}
+.sp{flex:1}
+.err{color:var(--red);padding:12px;font-size:13px}
+.bar{width:5px;height:19px;border-radius:3px;background:var(--blue);display:inline-block}
+.bar.red{background:var(--red)}
