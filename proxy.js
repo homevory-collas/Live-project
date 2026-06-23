@@ -197,7 +197,15 @@ app.get('/api/live/room',  (req, res) => forward(LIVE_API_BASE, LIVE_API_KEY, '/
    Serve the static frontend so a single service hosts both API and UI. */
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-const __pubDir = join(dirname(fileURLToPath(import.meta.url)), '..', 'public');
+
+const __pubDir = dirname(fileURLToPath(import.meta.url));
+
 app.use(express.static(__pubDir));
 
-app.listen(PORT, () => console.log(`LIVE ARENA proxy + site on http://localhost:${PORT}`));
+app.get('/', (_req, res) => {
+  res.sendFile(join(__pubDir, 'index.html'));
+});
+
+app.listen(PORT, () => {
+  console.log(`LIVE ARENA proxy + site on http://localhost:${PORT}`);
+});
