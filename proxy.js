@@ -194,8 +194,7 @@ app.get('/api/live/rooms', (req, res) => forward(LIVE_API_BASE, LIVE_API_KEY, '/
 app.get('/api/live/room',  (req, res) => forward(LIVE_API_BASE, LIVE_API_KEY, '/room',  req.query, res));
 
 /* 静态前端：让本服务同时托管 public/（部署时一个服务即可）
-   Serve the static frontend so a single service hosts both API and UI. */
-import { fileURLToPath } from 'node:url';
+  import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const __pubDir = dirname(fileURLToPath(import.meta.url));
