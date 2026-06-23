@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UU9直播站 · 体育 & 电竞直播</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Saira:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+  <!-- 顶部条 / top bar -->
+  <div class="topbar"><div class="wrap">
+    <span class="sp"></span>
+    <a href="#" data-i18n="app_download">客户端下载</a>
+    <a href="auth.html?mode=login" data-i18n="login">登录</a>
+    <a href="auth.html?mode=register" data-i18n="register">注册</a>
+    <span class="lang" id="lang"></span>
+  </div></div>
+
+  <!-- 头部 / header -->
+  <header class="head"><div class="wrap">
+    <a class="brand" href="index.html"><span class="mk"></span>UU9<i>直播站</i></a>
+    <div class="search">
+      <input type="text" data-i18n-ph="search_ph" placeholder="搜索…">
+      <button aria-label="search">🔍</button>
+    </div>
+    <div class="acts">
+      <button class="btn line" data-i18n="data_center">数据中心</button>
+      <a class="btn red" href="go-live.html" data-i18n="go_live">开播</a>
+    </div>
+  </div></header>
+
+  <!-- 红色导航 / red nav -->
+  <nav class="nav"><div class="wrap">
+    <a class="home" href="index.html" data-i18n="nav_home">首页</a>
+    <a href="#live" data-i18n="nav_live">直播</a>
+    <a href="#" data-i18n="nav_football">足球</a>
+    <a href="#" data-i18n="nav_basket">篮球</a>
+    <a href="#" data-i18n="nav_esport">电竞</a>
+    <a href="#" data-i18n="nav_news">资讯</a>
+    <a href="#" data-i18n="nav_quan">圈子</a>
+    <a href="#" data-i18n="nav_data">数据</a>
+  </div></nav>
+
+  <!-- 广告位 / ad slot -->
+  <div class="wrap"><div class="ad-slot" data-ad-slot="home_top"></div></div>
+
+  <!-- 正在直播 / live now -->
+  <section class="sec" id="live"><div class="wrap">
+    <div class="shead"><h2><span class="bar red"></span><span data-i18n="sec_live">正在直播</span></h2>
+      <a class="more" href="#" data-i18n="more">查看全部</a></div>
+    <div class="live-grid" id="liveGrid"></div>
+  </div></section>
+
+  <!-- 主区 / main -->
+  <div class="wrap main">
+    <div class="col-main">
+      <div class="card">
+        <div class="shead"><h2><span class="bar"></span><span data-i18n="sec_news">热门资讯</span></h2></div>
+        <ul class="news" id="newsList"></ul>
+      </div>
+    </div>
+    <aside class="col-side">
+      <div class="card pad0">
+        <div class="phead"><span class="bar"></span><span data-i18n="sec_scores">赛程比分</span></div>
+        <div class="tabs" id="scoreTabs">
+          <button class="on" data-g="hot" data-i18n="tab_hot">热门</button>
+          <button data-g="football" data-i18n="tab_football">足球</button>
+          <button data-g="basket" data-i18n="tab_basket">篮球</button>
+          <button data-g="esport" data-i18n="tab_esport">电竞</button>
+        </div>
+        <div class="score-list" id="scoreList"></div>
+      </div>
+      <div class="card pad0">
+        <div class="phead"><span class="bar"></span><span data-i18n="sec_standings">积分榜</span> · 英超</div>
+        <div id="standings" style="padding:6px 12px 12px"></div>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="foot"><div class="wrap">
+    <a class="brand" href="index.html"><span class="mk"></span>UU9<i>直播站</i></a>
+    <p data-i18n="footer_about">大型体育与电竞直播平台</p>
+    <p class="foot-links">
+      <a href="terms.html">用户协议 / Terms</a> ·
+      <a href="contact.html">联系我们 / Contact</a>
+    </p>
+    <small>© 2026 UU9直播站</small>
+  </div></footer>
+
+  <script type="module" src="js/pages/portal.js"></script>
+</body>
+</html>

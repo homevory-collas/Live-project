@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>管理后台 · UU9直播站</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Saira:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body class="admin">
+  <header class="head slim"><div class="wrap">
+    <a class="brand" href="index.html"><span class="mk"></span>UU9<i>直播站</i></a>
+    <span class="adm-tag">ADMIN</span>
+    <span class="sp"></span>
+    <a class="back" href="index.html">← 返回站点 / Site</a>
+  </div></header>
+
+  <!-- 登录 / login -->
+  <main class="wrap adm-login" id="loginView">
+    <div class="adm-card narrow">
+      <h2>管理员登录 / Admin login</h2>
+      <p class="gl-tip">输入 ADMIN_TOKEN（在 server/.env 里设置）/ Enter the ADMIN_TOKEN from server/.env</p>
+      <input id="tokenInput" type="password" placeholder="ADMIN_TOKEN">
+      <button class="btn red" id="loginBtn">进入 / Enter</button>
+      <p class="adm-err" id="loginErr" hidden>令牌无效 / Invalid token</p>
+    </div>
+  </main>
+
+  <!-- 控制台 / dashboard -->
+  <main class="wrap adm-dash" id="dashView" hidden>
+    <div class="adm-grid">
+      <!-- 房间表单 / room form -->
+      <section class="adm-card">
+        <h3 id="formTitle">新建直播间 / New room</h3>
+        <label>标题 / Title<input id="fTitle" type="text"></label>
+        <label>分类显示 / Category<input id="fCat" type="text" placeholder="英超 / EPL"></label>
+        <label>分类键 / Category key
+          <select id="fCatKey">
+            <option value="football">football ⚽</option>
+            <option value="basket">basket 🏀</option>
+            <option value="esport" selected>esport 🎮</option>
+          </select>
+        </label>
+        <label>主播 / Streamer<input id="fStreamer" type="text"></label>
+        <label>★ 直播流 .m3u8 / Stream URL（直接填完整链接）
+          <input id="fStream" type="text" placeholder="https://.../index.m3u8"></label>
+        <label>或 腾讯云流名 / Tencent stream name（只填流名，后端自动签名）
+          <input id="fStreamName" type="text" placeholder="match001"></label>
+        <label>封面图 URL / Cover<input id="fCover" type="text"></label>
+        <label>允许观看的国家/地区 / Allowed countries
+          <input id="fGeo" type="text" placeholder="VN,MY,ID（留空=不限制 / empty=all）"></label>
+        <label class="ck"><input id="fPub" type="checkbox" checked> 已发布 / Published</label>
+        <input id="fId" type="hidden">
+        <div class="row">
+          <button class="btn red" id="saveBtn">保存 / Save</button>
+          <button class="btn line" id="resetBtn">清空 / Clear</button>
+        </div>
+        <p class="adm-err" id="formErr" hidden></p>
+      </section>
+
+      <!-- 房间列表 / room list -->
+      <section class="adm-card">
+        <h3>直播间列表 / Rooms <span class="adm-count" id="count">0</span></h3>
+        <div class="adm-list" id="roomList"></div>
+      </section>
+    </div>
+
+    <!-- 广告管理 / ads -->
+    <div class="adm-grid" style="margin-top:18px">
+      <section class="adm-card">
+        <h3>新建广告 / New ad</h3>
+        <label>位置 / Slot
+          <select id="aSlot">
+            <option value="home_top">home_top（首页顶部）</option>
+            <option value="home_side">home_side（首页侧栏）</option>
+            <option value="live_below">live_below（播放器下方）</option>
+            <option value="live_preroll">live_preroll（贴片）</option>
+          </select>
+        </label>
+        <label>类型 / Type
+          <select id="aType"><option value="image">图片 / Image</option><option value="html">HTML</option></select>
+        </label>
+        <label>图片 URL / Image<input id="aImage" type="text" placeholder="https://.../banner.jpg"></label>
+        <label>跳转链接 / Link<input id="aLink" type="text" placeholder="https://advertiser.com"></label>
+        <label>自定义 HTML（type=html 时）<input id="aHtml" type="text" placeholder="<a href=...></a>"></label>
+        <label>权重 / Weight<input id="aWeight" type="text" placeholder="1"></label>
+        <label class="ck"><input id="aActive" type="checkbox" checked> 启用 / Active</label>
+        <input id="aId" type="hidden">
+        <div class="row">
+          <button class="btn red" id="adSaveBtn">保存 / Save</button>
+          <button class="btn line" id="adResetBtn">清空 / Clear</button>
+        </div>
+      </section>
+      <section class="adm-card">
+        <h3>广告列表 / Ads <span class="adm-count" id="adCount">0</span></h3>
+        <div class="adm-list" id="adList"></div>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="js/pages/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>登录 / 注册 · UU9直播站</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Saira:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body class="auth">
+  <header class="head slim"><div class="wrap">
+    <a class="brand" href="index.html"><span class="mk"></span>UU9<i>直播站</i></a>
+    <span class="sp"></span>
+    <a class="back" href="index.html">← 首页 / Home</a>
+  </div></header>
+
+  <main class="wrap auth-wrap">
+    <div class="auth-card">
+      <div class="auth-tabs">
+        <button class="auth-tab on" id="tabLogin" data-i18n="login">登录</button>
+        <button class="auth-tab" id="tabReg" data-i18n="register">注册</button>
+      </div>
+
+      <p class="auth-sub" id="sub" data-i18n="auth_sub">免费观看 · 注册只需邮箱 / Free to watch · email only</p>
+
+      <label data-i18n="email">邮箱 / Email
+        <input id="email" type="email" autocomplete="email" placeholder="you@example.com"></label>
+      <label data-i18n="password">密码 / Password
+        <input id="password" type="password" autocomplete="current-password" placeholder="••••••"></label>
+
+      <button class="btn red wide" id="submitBtn" data-i18n="login">登录</button>
+      <p class="auth-err" id="err" hidden></p>
+      <p class="gl-tip" data-i18n="auth_tip">注册即表示同意条款。不需要实名认证。/ No KYC required.</p>
+    </div>
+  </main>
+
+  <script type="module" src="js/pages/auth-page.js"></script>
+</body>
+</html>

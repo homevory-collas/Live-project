@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>开播 · UU9直播站</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Saira:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body class="golive">
+  <header class="head slim"><div class="wrap">
+    <a class="brand" href="index.html"><span class="mk"></span>UU9<i>直播站</i></a>
+    <a class="back" href="index.html" data-i18n="back_home">返回首页</a>
+    <span class="sp"></span>
+    <span class="lang" id="lang"></span>
+  </div></header>
+
+  <main class="wrap golive-grid">
+    <!-- 左：预览画面（摄像头 + 叠加层）/ left: preview (camera + overlays) -->
+    <section class="gl-stage-wrap">
+      <div class="gl-stage" id="glStage">
+        <video id="cam" playsinline muted></video>
+        <!-- 叠加层：广告文字 / Logo 都贴在这里 / overlay layer for ad text & logos -->
+        <div class="ov-layer" id="ovLayer"></div>
+        <span class="gl-livebadge" id="liveBadge" hidden><i></i><span data-i18n="on_air">直播中</span></span>
+        <p class="gl-hint" id="camHint" data-i18n="cam_hint">点击「开启摄像头」开始 · Click "Start camera"</p>
+      </div>
+
+      <div class="gl-bar">
+        <button class="btn line" id="btnCam" data-i18n="start_cam">开启摄像头</button>
+        <button class="btn line" id="btnScreen" data-i18n="share_screen">共享屏幕</button>
+        <button class="btn red" id="btnGoLive" data-i18n="go_live" disabled>开播</button>
+        <span class="gl-timer" id="glTimer" hidden>00:00</span>
+        <span class="sp"></span>
+        <button class="btn line" id="btnSnap" data-i18n="save_frame">保存封面</button>
+      </div>
+    </section>
+
+    <!-- 右：导播台 / right: control panel -->
+    <aside class="gl-panel">
+      <!-- 1. 场景 / scenes -->
+      <div class="gl-card">
+        <h3 data-i18n="scenes">直播间布景 / Scenes</h3>
+        <div class="scene-list" id="sceneList"></div>
+      </div>
+
+      <!-- 2. 贴广告 / overlay tools -->
+      <div class="gl-card">
+        <h3 data-i18n="overlay_tools">贴字 & Logo（广告位）</h3>
+        <div class="ov-tools">
+          <input id="ovText" type="text" data-i18n-ph="ov_text_ph" placeholder="输入广告文字…">
+          <div class="row">
+            <input id="ovColor" type="color" value="#ffd400" title="color">
+            <select id="ovSize">
+              <option value="20">S</option>
+              <option value="30" selected>M</option>
+              <option value="44">L</option>
+              <option value="64">XL</option>
+            </select>
+            <button class="btn line sm" id="btnAddText" data-i18n="add_text">加文字</button>
+          </div>
+          <div class="row">
+            <button class="btn line sm" id="btnAddTicker" data-i18n="add_ticker">底部滚动条</button>
+            <label class="btn line sm file"><span data-i18n="add_logo">加 Logo/图</span>
+              <input id="ovLogo" type="file" accept="image/*" hidden></label>
+            <button class="btn line sm" id="btnClearOv" data-i18n="clear_ov">清空</button>
+          </div>
+          <p class="gl-tip" data-i18n="ov_tip">提示：拖动可移动；双击可删除该元素。</p>
+        </div>
+      </div>
+
+      <!-- 3. 房间信息 / room meta -->
+      <div class="gl-card">
+        <h3 data-i18n="room_info">房间信息</h3>
+        <input id="rmTitle" type="text" data-i18n-ph="rm_title_ph" placeholder="直播标题…">
+        <select id="rmCat">
+          <option value="football">⚽ 足球 / Football</option>
+          <option value="basket">🏀 篮球 / Basketball</option>
+          <option value="esport" selected>🎮 电竞 / Esports</option>
+        </select>
+        <p class="gl-tip" id="shareLine" hidden></p>
+      </div>
+    </aside>
+  </main>
+
+  <script type="module" src="js/pages/golive.js"></script>
+</body>
+</html>

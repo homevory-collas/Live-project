@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>看直播 · UU9直播站</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Saira:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/app.css">
+<!-- HLS 播放器 / HLS player. 也可换成你的 SDK / can be replaced by your SDK -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.13/hls.min.js"></script>
+</head>
+<body class="room">
+  <header class="head slim"><div class="wrap">
+    <a class="brand" href="index.html"><span class="mk"></span>UU9<i>直播站</i></a>
+    <a class="back" href="index.html" data-i18n="back_home">返回首页</a>
+    <span class="sp"></span>
+    <span class="lang" id="lang"></span>
+  </div></header>
+
+  <main class="wrap room-grid">
+    <section class="stage-wrap">
+      <div class="stage">
+        <video id="player" controls playsinline muted></video>
+        <p id="streamMsg" class="stream-msg" hidden></p>
+      </div>
+      <h1 id="roomTitle" data-i18n="loading">加载中…</h1>
+      <div id="roomMeta" class="room-meta"></div>
+      <div class="ad-slot" data-ad-slot="live_below"></div>
+    </section>
+
+    <aside class="chat">
+      <div class="chat-head"><span class="dot"></span><span data-i18n="chat_title">聊天室</span></div>
+      <div class="chat-body" id="chatBody"></div>
+      <div class="chat-input">
+        <input id="chatInput" type="text" data-i18n-ph="chat_ph" placeholder="说点什么…">
+        <button id="chatSend" data-i18n="send">发送</button>
+      </div>
+    </aside>
+  </main>
+
+  <script type="module" src="js/pages/live.js"></script>
+</body>
+</html>
